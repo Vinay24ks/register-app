@@ -22,7 +22,7 @@ pipeline {
 
         stage("Checkout from SCM"){
                 steps {
-                    git branch: 'main', credentialsId: 'github', url: '---'
+                    git branch: 'main', credentialsId: 'github', url: 'https://github.com/Vinay24ks/register-app.git'
                 }
         }
 
@@ -104,12 +104,12 @@ pipeline {
        failure {
              emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
                       subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Failed", 
-                      mimeType: 'text/html',to: "ashfaque.s510@gmail.com"
+                      mimeType: 'text/html',to: "1rn19me102.vinayks@gmail.com"
       }
       success {
             emailext body: '''${SCRIPT, template="groovy-html.template"}''', 
                      subject: "${env.JOB_NAME} - Build # ${env.BUILD_NUMBER} - Successful", 
-                     mimeType: 'text/html',to: "ashfaque.s510@gmail.com"
+                     mimeType: 'text/html',to: "1rn19me102.vinayks@gmail.com"
       }      
    }
 }
